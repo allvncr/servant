@@ -68,7 +68,7 @@
     <footer>
       <div class="getIn">
         <h2>Contactez-Nous</h2>
-        <form @submit.prevent="">
+        <form @submit.prevent="handleForm">
           <div class="fieldset">
             <input
               type="text"

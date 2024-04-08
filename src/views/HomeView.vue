@@ -1,23 +1,5 @@
 <template>
   <main>
-    <header>
-      <router-link to="/" class="logo">Serhant.</router-link>
-      <ul>
-        <li>
-          <router-link to="/">Accueil</router-link>
-        </li>
-        <li>
-          <router-link to="/">Appartements</router-link>
-        </li>
-        <li>
-          <router-link to="/">A propos</router-link>
-        </li>
-      </ul>
-      <div class="actions">
-        <div class="login">Connexion</div>
-      </div>
-    </header>
-
     <div class="banner">
       <video
         poster="https://res.cloudinary.com/luxuryp/videos/f_auto,q_auto/so_0,eo_0/nxyi3r8gi6tccpz4ke5p/8.jpg"
@@ -37,7 +19,7 @@
       <p>Faire un pas pour <br />Votre Future.</p>
     </div>
 
-    <section>
+    <section id="maison">
       <h1>Propriétés</h1>
       <p>
         Découvrez certaines de nos maisons, appartements, maisons de ville les
@@ -46,7 +28,7 @@
 
       <ul class="maisons">
         <li class="maison" v-for="(maison, i) in maisons" :key="i">
-          <router-link to="/">
+          <router-link :to="`/maison/${maison.id}`">
             <div class="image">
               <img :src="maison.image" />
             </div>
@@ -65,107 +47,23 @@
       </ul>
     </section>
 
-    <footer>
-      <div class="getIn">
-        <h2>Contactez-Nous</h2>
-        <form @submit.prevent="handleForm">
-          <div class="fieldset">
-            <input
-              type="text"
-              v-model="form.name"
-              placeholder="Nom *"
-              required
-            />
-          </div>
-          <div class="fieldset">
-            <input
-              type="email"
-              v-model="form.email"
-              placeholder="Email *"
-              required
-            />
-          </div>
-          <div class="fieldset">
-            <input
-              type="tel"
-              v-model="form.phone"
-              placeholder="Telephone *"
-              required
-            />
-          </div>
-          <div class="fieldset">
-            <input
-              type="text"
-              v-model="form.sujet"
-              placeholder="Sujet *"
-              required
-            />
-          </div>
-          <div class="fieldset">
-            <textarea
-              cols="30"
-              rows="10"
-              v-model="form.message"
-              placeholder="Ton Message *"
-              required
-            ></textarea>
-          </div>
-
-          <button type="submit">Envoyer</button>
-        </form>
-      </div>
-      <div class="top">
-        <div class="logo">
-          <router-link to="/" class="logo">Serhant.</router-link>
-        </div>
-        <div class="copyright">
-          © 2024 Serhant Real Estate, Inc. All Rights Reserved.
-        </div>
-        <ul>
-          <li>
-            <a href="" target="_blank"> Facebook </a>
-          </li>
-          <li>
-            <a href="" target="_blank"> Instagram </a>
-          </li>
-          <li>
-            <a href="" target="_blank"> Twitter </a>
-          </li>
-          <li>
-            <a href="" target="_blank"> Tiktok </a>
-          </li>
-        </ul>
-      </div>
-
+    <section id="news">
+      <h1>Nouveautés</h1>
       <p>
-        Toutes les informations de l'annonce sont considérées comme fiables mais
-        ne sont pas garanties et sont sujettes à des erreurs, omissions,
-        changements de prix, vente préalable ou retrait sans préavis. Aucune
-        représentation n’est faite quant à l’exactitude d’une description.
-        Toutes les mesures et superficies en pieds carrés sont approximatives et
-        toutes les informations descriptives doivent être vérifiées de manière
-        indépendante.
+        Explorez de nouveaux bâtiments qui rehaussent la vie de luxe moderne.
       </p>
 
-      <div class="bottom">
-        <ul>
-          <li>
-            <router-link to="/">Nos Maisons</router-link>
-          </li>
-          <li>
-            <router-link to="/">A propos</router-link>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <router-link to="/">Conditions générales de vente</router-link>
-          </li>
-          <li>
-            <router-link to="/">Confidentialité des données</router-link>
-          </li>
-        </ul>
+      <div class="carousel">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
       </div>
-    </footer>
+    </section>
   </main>
 </template>
 
@@ -174,6 +72,7 @@ import { ref } from "vue";
 
 const maisons = ref([
   {
+    id: 1,
     image:
       "https://dlajgvw9htjpb.cloudfront.net/cms/b26ab618-2b1e-4a17-8868-498b96b52dc0/RPLU-1032522855446/-7291978570226573518.jpg",
     price: "195,000,000",
@@ -182,6 +81,7 @@ const maisons = ref([
     bath: 5,
   },
   {
+    id: 2,
     image:
       "https://dlajgvw9htjpb.cloudfront.net/cms/b26ab618-2b1e-4a17-8868-498b96b52dc0/RPLU-1032522874007/-8687501540658878480.jpg",
     price: "195,000,000",
@@ -190,6 +90,7 @@ const maisons = ref([
     bath: 5,
   },
   {
+    id: 3,
     image:
       "https://dlajgvw9htjpb.cloudfront.net/cms/b26ab618-2b1e-4a17-8868-498b96b52dc0/RPLU-1032522873815/3639262338627653129.jpg",
     price: "195,000,000",
@@ -198,6 +99,7 @@ const maisons = ref([
     bath: 5,
   },
   {
+    id: 4,
     image:
       "https://dlajgvw9htjpb.cloudfront.net/cms/b26ab618-2b1e-4a17-8868-498b96b52dc0/RPLU-1032522873755/2135095839947240560.jpg",
     price: "195,000,000",
@@ -206,6 +108,7 @@ const maisons = ref([
     bath: 5,
   },
   {
+    id: 5,
     image:
       "https://dlajgvw9htjpb.cloudfront.net/cms/b26ab618-2b1e-4a17-8868-498b96b52dc0/H6270919/-2238184018286443187.jpg",
     price: "195,000,000",
@@ -214,6 +117,7 @@ const maisons = ref([
     bath: 5,
   },
   {
+    id: 6,
     image:
       "https://dlajgvw9htjpb.cloudfront.net/cms/b26ab618-2b1e-4a17-8868-498b96b52dc0/RPLU-1032522873807/-4364457899624697075.jpg",
     price: "195,000,000",
@@ -231,6 +135,8 @@ const form = ref({
   message: null,
 });
 
+const visibleRight = ref(false);
+
 const handleForm = () => {
   form.value = {
     name: null,
@@ -240,82 +146,16 @@ const handleForm = () => {
     message: null,
   };
 };
+
+const scrollToElement = (elementId) => {
+  const targetElement = document.getElementById(elementId);
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: "smooth" });
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-header {
-  @media (max-width: 768px) {
-    padding: 16px 24px;
-    justify-content: space-between;
-  }
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 24px 36px;
-  z-index: 1;
-
-  .logo {
-    @media (max-width: 768px) {
-      color: #000;
-      text-shadow: none;
-    }
-    @media (max-width: 425px) {
-      font-size: 24px;
-    }
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    font-size: 32px;
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 1px 1px 0px #000;
-  }
-
-  ul {
-    @media (max-width: 768px) {
-      gap: 12px;
-      display: none;
-    }
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    a {
-      display: inline-block;
-      color: #fff;
-      padding: 8px 16px;
-      font-size: 18px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      text-shadow: 0px 1px 0px #000;
-
-      &:hover {
-        text-decoration: underline;
-        letter-spacing: 2px;
-      }
-    }
-  }
-
-  .actions {
-    @media (max-width: 768px) {
-      color: #000;
-      text-shadow: none;
-    }
-    @media (max-width: 425px) {
-      font-size: 14px;
-    }
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #fff;
-    text-shadow: 1px 1px 0px #000;
-  }
-}
-
 .banner {
   @media (max-width: 768px) {
     margin-top: 0;
@@ -448,182 +288,49 @@ section {
   }
 }
 
-footer {
-  @media (max-width: 768px) {
-    padding: 50px 0;
-  }
-  padding: 80px 0;
-  background-color: #f7f7f7;
+.carousel {
+  height: 480px;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
 
-  .getIn {
-    @media (max-width: 768px) {
-      display: block;
-      padding: 80px 15px;
-    }
-    background-color: #131176;
-    padding: 80px 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
+  .item {
+    flex: 1;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all 1s ease;
+    // background-color: #000;
+    // background-blend-mode: luminosity;
 
-    h2 {
-      @media (max-width: 768px) {
-        font-size: 32px;
-      }
-      color: #fff;
-      font-size: 48px;
-      margin-bottom: 24px;
+    &:hover {
+      flex: 4;
+      background-blend-mode: normal;
     }
 
-    form {
-      @media (max-width: 768px) {
-        width: 100%;
-      }
-      @media (max-width: 425px) {
-        padding: 36px 16px;
-        width: 100%;
-      }
-      width: 60%;
-      padding: 65px 56px;
-      border-radius: 10px;
-      background-color: #fff;
-
-      .fieldset {
-        margin-bottom: 1rem;
-
-        input,
-        textarea {
-          width: 100%;
-          padding: 15px 20px;
-          border: 1px solid #00000066;
-          border-radius: 0.5rem;
-          outline: none;
-          line-height: 1.5;
-          font-size: 16px;
-          color: #00000066;
-
-          &::placeholder {
-            text-transform: capitalize;
-            font-size: 0.875rem;
-          }
-        }
-      }
-
-      button {
-        cursor: pointer;
-        display: inline-block;
-        background-color: #001a72;
-        border: 1px solid transparent;
-        transition: all 0.3s ease-out;
-        max-width: fit-content;
-        border-radius: 100px;
-        font-size: 0.875rem;
-        font-weight: 700;
-        line-height: 1.43;
-        padding: calc(1.125rem - 1px) 2rem;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        outline: none;
-        min-height: 3.5rem;
-        user-select: none;
-        touch-action: manipulation;
-        text-decoration: none;
-        color: #fff;
-
-        &:hover {
-          background-color: #002fcf;
-        }
-      }
+    &:nth-child(1) {
+      background-image: url("https://res.cloudinary.com/luxuryp/images/w_960,c_limit,f_auto,q_auto/o6fzhpu6qh4vnmaikaz4/hero_east_low_res-1");
     }
-  }
-
-  .top {
-    @media (max-width: 768px) {
-      padding: 50px 15px;
-      gap: 16px;
+    &:nth-child(2) {
+      background-image: url("https://res.cloudinary.com/luxuryp/images/w_960,c_limit,f_auto,q_auto/h7zwb0sdip19ip8wvewn/iris-tribeca");
     }
-    border-bottom: 1px solid #d7d7d7;
-    padding: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-    .logo {
-      @media (max-width: 768px) {
-        font-size: 24px;
-      }
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      font-size: 32px;
-      font-weight: 700;
-      color: #001a72;
+    &:nth-child(3) {
+      background-image: url("https://res.cloudinary.com/luxuryp/images/w_960,c_limit,f_auto,q_auto/ug5ueolsndxfmg3kyyth/dji_0048-hdr-2");
     }
-
-    .copyright {
-      font-size: 12px;
+    &:nth-child(4) {
+      background-image: url("https://res.cloudinary.com/luxuryp/images/w_960,c_limit,f_auto,q_auto/a3jjdwye96ilkbitvrgu/huxley");
     }
-
-    ul {
-      list-style: none;
-      display: flex;
-      gap: 12px;
-
-      a {
-        text-decoration: none;
-        color: inherit;
-        font-size: 14px;
-        transition: all 0.3s ease;
-
-        &:hover {
-          color: #001a72;
-        }
-      }
+    &:nth-child(5) {
+      background-image: url("https://res.cloudinary.com/luxuryp/images/w_960,c_limit,f_auto,q_auto/rwlkqrr0yxevubxzdcct/475-kent-1");
     }
-  }
-
-  p {
-    @media (max-width: 768px) {
-      padding: 24px 15px;
+    &:nth-child(6) {
+      background-image: url("https://res.cloudinary.com/luxuryp/images/w_960,c_limit,f_auto,q_auto/lv7jc3vgyowkeezlwmir/11-32-31-ave-01-hero-p4-final-medium-res");
     }
-    padding: 50px 50px 0;
-    font-size: 12px;
-    margin-bottom: 24px;
-  }
-
-  .bottom {
-    @media (max-width: 768px) {
-      padding: 15px 15px 0;
-      justify-content: space-between;
+    &:nth-child(7) {
+      background-image: url("https://res.cloudinary.com/luxuryp/images/w_960,c_limit,f_auto,q_auto/ednto1m6dswvf0wvuheu/1080-lorimer");
     }
-    @media (max-width: 425px) {
-      display: block;
-    }
-    padding: 50px 50px 0;
-    display: flex;
-    justify-content: space-around;
-    gap: 1.5rem;
-
-    ul {
-      list-style: none;
-
-      a {
-        display: block;
-        margin-bottom: 8px;
-        text-transform: capitalize;
-        text-decoration: none;
-        font-size: 14px;
-        color: #001a72;
-        font-weight: 700;
-        transition: all 0.3s ease;
-
-        &:hover {
-          color: #002fcf;
-          text-decoration: underline;
-        }
-      }
+    &:nth-child(8) {
+      background-image: url("https://res.cloudinary.com/luxuryp/images/w_960,c_limit,f_auto,q_auto/kt2cvan9p9khrud6hs30/24");
     }
   }
 }
